@@ -20,7 +20,7 @@
         }
 
         public function init() {
-            include_once PLUGIN_PATH . 'includes/main.php'
+            include_once PLUGIN_PATH . 'includes/main.php';
         }
     }
 

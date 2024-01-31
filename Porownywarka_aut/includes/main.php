@@ -1,6 +1,6 @@
 <?php
-add_shortcode('contact', 'show_mainPage');
+add_shortcode('carPairing', 'show_mainPage');
 
 function show_mainPage() {
-    return PLUGIN_PATH . '/includes/template/';
+    include PLUGIN_PATH . '/includes/template/comparison.php';
 }
