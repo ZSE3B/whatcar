@@ -5,9 +5,47 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-rockauto-blocks {
+.comparison-block {
 	display: flex;
   	flex-direction: row;
   	justify-content: space-around;
   	width: 100%;
+
+	.searchIcon {
+		height: 30em;
+		width: 30em;
+		font-size: .03rem;
+		position: absolute;
+		margin-left: -20px;
+		margin-top: 7px;
+
+		-webkit-transform: scaleX(-1);
+  		transform: scaleX(-1);
+	}
+
+	input {
+		height: 1.8em;
+		&[type=search] {
+			border-radius: 4px;
+			width: 15em;
+		}
+		&[type=button] {
+			height: 3em;
+			width: 3em;
+			font-size: .5rem;
+			aspect-ratio: 1/1;
+			&:last-child {
+				width: 5em;
+				margin-inline: 5px;
+			}
+
+			&[value='+']{
+				width: 5em;
+				height: 5em;
+				border-radius: 50%;
+			}
+		}
+	}
+
+
 }
