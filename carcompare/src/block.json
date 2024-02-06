@@ -1,17 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/rockauto-blocks",
+	"name": "create-block/carcompare",
 	"version": "0.1.0",
-	"title": "Rockauto Blocks",
+	"title": "CarCompare",
 	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"icon": "car",
+	"description": "Easily compare car operating costs.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
-	"textdomain": "rockauto-blocks",
+	"textdomain": "carcompare",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

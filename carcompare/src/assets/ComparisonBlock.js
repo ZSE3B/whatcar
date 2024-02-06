@@ -25,10 +25,10 @@ export default function ComparisonBlock() {
     }
 
     return (
-        <div>
+        <div className='comparison-block'>
             {cars.map((car) => (
                 <div key={car.id}>
-                    <input type='button' onClick={() => handleRemoveCar(car.id)} value='-' />
+                    <input type='button' onClick={() => handleRemoveCar(car.id)} value='❌' />
                     {car.component}
                 </div>
             ))}
