@@ -2,18 +2,36 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import cars from './cars.json'
 
 export default function InformBlock(props) {
-    const [newCar, setNewCar] = useState({ search: props.search, filler: props.filler });
+
+    const [thisCar, setThisCar] = useState({ search: props.search, filler: props.filler });
     const [carProps, setCarProps] = useState([]);
 
+
     function handleInputChange(event) {
+        if(event.target.value === '') {
+            setThisCar({ search: event.target.value, filler: props.filler });
+            return;
+        }
         let newFiller = 'next car name';
-        setNewCar({ search: event.target.value, filler: newFiller });
+        setThisCar({ search: event.target.value, filler: newFiller });
     }
 
     function handleSearch() {
+        // fetch(cars)
+        // .then(response=> response.json())
+        // .then(data => console.log(data))
+        // .catch(error => console.error('Error fetching data:', error));
+        
         setCarProps([{ id: 1, component: 'kierownica', cost: 140 }, { id: 2, component: 'silnik', cost: 50 }]);
+
+        cars.forEach((car) => {
+            if(car.name !== thisCar.search) return;
+
+            setCarProps(car.components);
+        });
     }
 
     function handleKeyPress(event) {
@@ -23,17 +41,17 @@ export default function InformBlock(props) {
     }
 
     return (
-        <div className='InformBlock'>
-            <div>
+        <div className='inform-block'>
+            <div className="input-container">
                 <input
                     type='search'
-                    onChange={handleInputChange}
-                    value={newCar.search}
-                    placeholder={newCar.filler}
+                    value={thisCar.search}
+                    placeholder={thisCar.filler}
                     autoComplete='off'
+                    onChange={handleInputChange}
                     onKeyDown={handleKeyPress}
                 />
-                <FontAwesomeIcon className="searchIcon" onClick={handleSearch} icon={faMagnifyingGlass} />
+            <FontAwesomeIcon className="searchIcon" onClick={handleSearch} icon={faMagnifyingGlass} />  
             </div>
 
             {carProps.map((car) => (
@@ -50,5 +68,5 @@ InformBlock.propTypes = {
 
 InformBlock.defaultProps = {
     search: "",
-    filler: "ex. audi a4 2019"
+    filler: "np. audi a4 2019"
 };

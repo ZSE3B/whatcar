@@ -1,0 +1,32 @@
+[
+    {
+        "name": "audi 2019 a4",
+        "components": [
+            {
+                "id": 1,
+                "component": "silnik",
+                "cost": 140
+            },
+            {
+                "id": 2,
+                "component": "kierownica",
+                "cost": 150
+            }
+        ]
+    },
+    {
+        "name": "audi 2024 1 1.4l l4 turbocharged",
+        "components": [
+            {
+                "id": 1,
+                "component": "silnik",
+                "cost": 500
+            },
+            {
+                "id": 2,
+                "component": "kierownica",
+                "cost": 50
+            }
+        ]
+    }
+]

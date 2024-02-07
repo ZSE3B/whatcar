@@ -6,6 +6,7 @@
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
+
 /**
  * The save function defines the way in which the different attributes should
  * be combined into the final markup, which is then serialized by the block
@@ -17,8 +18,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save() {
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Rockauto Blocks – hello from the saved content!' }
-		</p>
+		<div { ...useBlockProps.save() }>
+			
+		</div>
 	);
 }

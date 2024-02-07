@@ -5,8 +5,11 @@ export default function ComparisonBlock() {
     const maxNrCars = 4;
     const minNrCars = 1;
 
-
-    const [cars, setCars] = useState([{ id: 1, component: <InformBlock key={1} /> }, { id: 2, component: <InformBlock key={2} /> }]);
+    // Initialize state with plain JavaScript objects
+    const [cars, setCars] = useState([
+        { id: 1 },
+        { id: 2 }
+    ]);
 
     function handleAddCar() {
         if (cars.length === maxNrCars) return;
@@ -16,23 +19,26 @@ export default function ComparisonBlock() {
             AddId++;
         }
 
-        setCars(cars => [...cars, { id: AddId, component: <InformBlock key={AddId} /> }]);
+        // Add new car object to the state
+        setCars(cars => [...cars, { id: AddId }]);
     }
 
     function handleRemoveCar(RemoveId) {
         if (cars.length === minNrCars) return;
+        // Remove car with the specified id from the state
         setCars(cars => cars.filter(car => car.id !== RemoveId));
     }
 
-    return (
-        <div className='comparison-block'>
-            {cars.map((car) => (
-                <div key={car.id}>
-                    <input type='button' onClick={() => handleRemoveCar(car.id)} value='❌' />
-                    {car.component}
+return (
+    <div className='comparison-block'>
+        {cars.map((car) => (
+            <div key={car.id} className='one-block'>
+                <input type='button' onClick={() => handleRemoveCar(car.id)} value='❌' />
+                <InformBlock key={car.id} /> 
                 </div>
-            ))}
-            {cars.length < maxNrCars ? <input type='button' onClick={handleAddCar} value='+' /> : null}
-        </div>
-    );
+        ))}
+        {cars.length < maxNrCars ? <input type='button' onClick={handleAddCar} value='+' /> : null}
+    </div>
+);
+
 }
